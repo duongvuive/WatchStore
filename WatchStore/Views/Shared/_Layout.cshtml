@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="~/Content/Css/main.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <section>
+        <div class="navbar navbar-expand-xl navbar-light bg-light">
+            <div class="logo">
+                @*Hien thi logo bằng class navbar-brand*@
+                <a class="navbar-brand " href="https://localhost:44358/Watch/Index"><img class="icon-custom" src="~/Content/images/logo.png" /></a>
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="https://localhost:44310/Watch/Index">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" @Html.ActionLink("Đồng Hồ Nam", "DongHoNam", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  @Html.ActionLink("Đồng Hồ Nữ", "DongHoNu", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+                </ul>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </section>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WatchStore.Models.Watch>
+
+@{
+    ViewBag.Title = "DongHoNu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/Css/text.css" rel="stylesheet" />
+<h2>DongHoNu</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+            <div class="card-group">
+                <div class="card">
+                    <a href="" class="text-decoration-none text-reset">
+                        <div class="zoomin ">
+                            <img class="card-img-top" src="@item.Image">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-truncate">@item.NameWatch</h5>
+                            <p class="text-truncate"><strong>Nhà Sản Xuất: </strong>@item.Supplier.NameSupplier</p>
+                            <p class="text-truncate"><strong>Thương Hiệu: </strong>@item.Brand.NameBrand</p>
+                            <p><strong>Giá: </strong>@item.Price</p>
+
+                        </div>
+                    </a>
+                    <div class="card-footer clearfix">
+                        <div class="text-center">
+                            @Html.ActionLink("Đặt Mua", "Buy", new { id = item.IDWatch }, new { @class = "btn btn-success" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

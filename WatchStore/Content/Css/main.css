@@ -1,0 +1,51 @@
+﻿.navbar navbar-expand-sm navbar-light bg-light{
+    width:100%;
+    height:100vh
+}
+
+
+.logo {
+    width:86%;
+    margin:auto;
+    font-family: 'Roboto',sans-serif;
+    display: flex;
+}
+
+
+.icon-custom{
+    width: 150px;
+}
+
+.logo ul li{
+    list-style:none;/*xóa đi dấu chấm*/
+}
+.logo ul li a {
+    text-decoration: none;/*Hủy đường kẻ dưới Text*/
+    margin: 22px 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    position:relative;
+}
+/*Hiển thị màu khi bấm vào*/
+    .logo ul li a:hover {
+        color: #00FF99;
+    }
+    /*Hiển thị đường kẻ gạch*/
+    .logo ul li a::after {
+        content: '';
+        height: 5px;
+        background: #33CCFF;
+        position: absolute;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 0.5s;
+    }
+    .logo ul li a:hover::after{
+        width:100%;
+    }
+
+
+
+/*Hiển thị a*/

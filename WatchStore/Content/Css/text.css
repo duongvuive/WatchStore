@@ -1,0 +1,18 @@
+﻿.edit-text {
+    color: #33CC33;
+}
+h6{
+    font-size:x-large;
+    font-weight:600;
+}
+
+
+.zoomin img {
+    -webkit-transition: all 2s ease;
+    -moz-transition: all 2s ease;
+    transition: all 2s ease;
+}
+
+    .zoomin img:hover {
+        transform: scale(1.5);
+    }

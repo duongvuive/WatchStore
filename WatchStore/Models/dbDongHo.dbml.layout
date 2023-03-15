@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.125" name="dbDongHo">
+  <DataContextMoniker Name="/dbDongHoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c39d46d8-ada0-4d0a-b250-0e4b1a0114a7" absoluteBounds="3.5, 5.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbDongHoDataContext/Bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e251b82-1c40-4e73-bd92-8269b9bf77c3" absoluteBounds="3.515, 5.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd8c50bd-de3e-4989-857e-f80012bd1836" absoluteBounds="6.25, 1.625, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/dbDongHoDataContext/BillDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="651e01e5-b100-4a6f-be3a-5906b38f93a2" absoluteBounds="6.265, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a1e3dfe0-36f4-469d-9a06-c239b2a92f27" absoluteBounds="0.75, 1.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbDongHoDataContext/Brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f895e3fb-60bd-43e1-9370-438e5ad23ee7" absoluteBounds="0.765, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17b29fa9-16ad-4b3e-9d34-1e3e79e5b483" absoluteBounds="6.75, 4.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/dbDongHoDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6af2525-aee4-4ccf-ab96-8dc642ce846a" absoluteBounds="6.765, 5.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b23fb334-50c0-4876-9bf9-e8450911d7d8" absoluteBounds="0.75, 4.25, 2, 1.1939925130208326">
+      <DataClassMoniker Name="/dbDongHoDataContext/Origin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02821f9d-12ab-4d17-8e84-57d509b0c687" absoluteBounds="0.765, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09427227-4483-41ac-b920-764eda6cf26b" absoluteBounds="0.75, 6.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/dbDongHoDataContext/ProductFor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aa5a9be1-926a-4b64-9663-12c40991a1e6" absoluteBounds="0.765, 6.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5bb435c6-71e6-4133-be4e-16f245c7dd9c" absoluteBounds="6.75, 7.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/dbDongHoDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8e56bf41-3f9f-4f31-8782-5961b2070cc2" absoluteBounds="6.765, 8.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38aaa413-311b-4bd7-bdcc-b296f16a92d0" absoluteBounds="0.75, 8.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbDongHoDataContext/Supplier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ceebdce0-f80e-4c70-aa69-d1728d403758" absoluteBounds="0.765, 8.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="290a18a1-c63f-434a-96db-5a0129bd1654" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/dbDongHoDataContext/Watch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc3f711d-46d6-4f27-9306-4dfeec441ea0" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.02329752604167); (6.46875 : 7.02329752604167); (6.46875 : 3.0112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDongHoDataContext/Bill/Bill_BillDetail" />
+      <nodes>
+        <classShapeMoniker Id="c39d46d8-ada0-4d0a-b250-0e4b1a0114a7" />
+        <classShapeMoniker Id="fd8c50bd-de3e-4989-857e-f80012bd1836" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.31814697265625); (6.25 : 2.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDongHoDataContext/Watch/Watch_BillDetail" />
+      <nodes>
+        <classShapeMoniker Id="290a18a1-c63f-434a-96db-5a0129bd1654" />
+        <classShapeMoniker Id="fd8c50bd-de3e-4989-857e-f80012bd1836" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.34699625651042); (3.22916666666667 : 2.34699625651042 : JumpStart); (3.39583333333333 : 2.34699625651042 : JumpEnd); (3.5 : 2.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDongHoDataContext/Brand/Brand_Watch" />
+      <nodes>
+        <classShapeMoniker Id="a1e3dfe0-36f4-469d-9a06-c239b2a92f27" />
+        <classShapeMoniker Id="290a18a1-c63f-434a-96db-5a0129bd1654" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.84699625651042); (3.04166666666667 : 4.84699625651042 : JumpStart); (3.20833333333333 : 4.84699625651042 : JumpEnd); (3.22916666666667 : 4.84699625651042 : JumpStart); (3.39583333333333 : 4.84699625651042 : JumpEnd); (4.5 : 4.84699625651042); (4.5 : 3.73240397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDongHoDataContext/Origin/Origin_Watch" />
+      <nodes>
+        <classShapeMoniker Id="b23fb334-50c0-4876-9bf9-e8450911d7d8" />
+        <classShapeMoniker Id="290a18a1-c63f-434a-96db-5a0129bd1654" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.25091745577925); (3.125 : 5.87591745577925); (3.125 : 3.07095211393229); (3.22916666666667 : 3.07095211393229 : JumpStart); (3.39583333333333 : 3.07095211393229 : JumpEnd); (3.5 : 3.07095211393229)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDongHoDataContext/ProductFor/ProductFor_Watch" />
+      <nodes>
+        <classShapeMoniker Id="09427227-4483-41ac-b920-764eda6cf26b" />
+        <classShapeMoniker Id="290a18a1-c63f-434a-96db-5a0129bd1654" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.18814281510417); (3.3125 : 7.62564281510417); (3.3125 : 1.64224612825521); (3.5 : 1.64224612825521)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDongHoDataContext/Supplier/Supplier_Watch" />
+      <nodes>
+        <classShapeMoniker Id="38aaa413-311b-4bd7-bdcc-b296f16a92d0" />
+        <classShapeMoniker Id="290a18a1-c63f-434a-96db-5a0129bd1654" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="WatchStore" Class="dbDongHoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Bill" Member="Bills">
+    <Type Name="Bill">
+      <Column Name="IDBill" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDCustomer" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Association Name="Bill_BillDetail" Member="BillDetails" ThisKey="IDBill" OtherKey="IDBill" Type="BillDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BillDetails" Member="BillDetails">
+    <Type Name="BillDetail">
+      <Column Name="IDWatch" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDBill" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumberOfOrders" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Bill_BillDetail" Member="Bill" ThisKey="IDBill" OtherKey="IDBill" Type="Bill" IsForeignKey="true" />
+      <Association Name="Watch_BillDetail" Member="Watch" ThisKey="IDWatch" OtherKey="IDWatch" Type="Watch" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brand" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="IDBrand" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameBrand" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Association Name="Brand_Watch" Member="Watches" ThisKey="IDBrand" OtherKey="IDBrand" Type="Watch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="IDCustomer" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CitizenIdentification" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="IDAP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Origin" Member="Origins">
+    <Type Name="Origin">
+      <Column Name="IDOrigin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameOrigin" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Association Name="Origin_Watch" Member="Watches" ThisKey="IDOrigin" OtherKey="IDOrigin" Type="Watch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductFor" Member="ProductFors">
+    <Type Name="ProductFor">
+      <Column Name="IDProductFor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameProductFor" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductFor_Watch" Member="Watches" ThisKey="IDProductFor" OtherKey="IDProductFor" Type="Watch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="IDStaff" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CitizenIdentification" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="IDAP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Supplier" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="IDSupplier" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameSupplier" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Adress" Type="System.String" DbType="NVarChar(290) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Supplier_Watch" Member="Watches" ThisKey="IDSupplier" OtherKey="IDSupplier" Type="Watch" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Watch" Member="Watches">
+    <Type Name="Watch">
+      <Column Name="IDWatch" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NameWatch" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="IDSupplier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDBrand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDOrigin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IDProductFor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NVarChar(1500)" CanBeNull="true" />
+      <Association Name="Watch_BillDetail" Member="BillDetails" ThisKey="IDWatch" OtherKey="IDWatch" Type="BillDetail" />
+      <Association Name="Brand_Watch" Member="Brand" ThisKey="IDBrand" OtherKey="IDBrand" Type="Brand" IsForeignKey="true" />
+      <Association Name="Origin_Watch" Member="Origin" ThisKey="IDOrigin" OtherKey="IDOrigin" Type="Origin" IsForeignKey="true" />
+      <Association Name="ProductFor_Watch" Member="ProductFor" ThisKey="IDProductFor" OtherKey="IDProductFor" Type="ProductFor" IsForeignKey="true" />
+      <Association Name="Supplier_Watch" Member="Supplier" ThisKey="IDSupplier" OtherKey="IDSupplier" Type="Supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AUTO_IDCustomer" Method="AUTO_IDCustomer" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.AUTO_IDAcountCustomer" Method="AUTO_IDAcountCustomer" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.AUTO_IDAcountStaff" Method="AUTO_IDAcountStaff" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.AUTO_IDStaff" Method="AUTO_IDStaff" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.AUTO_IDWatch" Method="AUTO_IDWatch" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+</Database>
