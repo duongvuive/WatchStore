@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WatchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,6 +277,7 @@
     <Content Include="Views\Watch\Index.cshtml" />
     <Content Include="Views\Watch\DongHoNam.cshtml" />
     <Content Include="Views\Watch\DongHoNu.cshtml" />
+    <Content Include="Views\KhachHang\DangKyThongTin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
