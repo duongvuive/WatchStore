@@ -1,0 +1,91 @@
+﻿@model WatchStore.Models.Watch
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Watch</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameWatch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameWatch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDSupplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDSupplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDOrigin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDOrigin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProductFor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProductFor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDWatch }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

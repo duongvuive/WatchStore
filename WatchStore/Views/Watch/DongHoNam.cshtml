@@ -1,12 +1,16 @@
-﻿@model IEnumerable<WatchStore.Models.Watch>
-
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model IPagedList<WatchStore.Models.Watch>
 @{
     ViewBag.Title = "DongHoNam";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <link href="~/Content/Css/text.css" rel="stylesheet" />
-<h2>DongHoNam</h2>
+<h2>Đồng Hồ Nam</h2>
+<p>
+    @Html.ActionLink("Tạo Mới", "TaoDongHo")
+</p>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -28,6 +32,9 @@
                     <div class="card-footer clearfix">
                         <div class="text-center">
                             @Html.ActionLink("Đặt Mua", "Buy", new { id = item.IDWatch }, new { @class = "btn btn-success" })
+                            @Html.ActionLink("Chi Tiết", "Detail", new { id = item.IDWatch }, new { @class = "btn btn-success" })
+                            @Html.ActionLink("Xoá", "Delete", new { id = item.IDWatch })|@Html.ActionLink("Sửa", "Edit", new { id = item.IDWatch })
+
                         </div>
                     </div>
                 </div>
@@ -36,3 +43,8 @@
         </div>
     }
 </div>
+<div>
+    @Html.ActionLink("Về Trang Chủ", "Index", "Watch", new { @class = "btn btn-justdark" })
+</div>
+<br />
+@Html.PagedListPager(Model, page => Url.Action("DongHoNam", "Watch", new { page, pagesize = 6 }))

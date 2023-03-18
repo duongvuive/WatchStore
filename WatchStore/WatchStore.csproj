@@ -47,6 +47,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -212,6 +218,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\slide-1.jpg" />
     <Content Include="Content\images\slide-2.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -225,6 +232,9 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>dbDongHo.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
     </Content>
     <None Include="Models\dbDongHo.dbml.layout">
       <DependentUpon>dbDongHo.dbml</DependentUpon>
@@ -278,6 +288,10 @@
     <Content Include="Views\Watch\DongHoNam.cshtml" />
     <Content Include="Views\Watch\DongHoNu.cshtml" />
     <Content Include="Views\KhachHang\DangKyThongTin.cshtml" />
+    <Content Include="Views\Watch\Detail.cshtml" />
+    <Content Include="Views\Watch\TaoDongHo.cshtml" />
+    <Content Include="Views\Watch\Delete.cshtml" />
+    <Content Include="Views\Watch\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

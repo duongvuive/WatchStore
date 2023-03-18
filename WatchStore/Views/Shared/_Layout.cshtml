@@ -23,7 +23,7 @@
                         <a class="nav-link" @Html.ActionLink("Đồng Hồ Nam", "DongHoNam", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  @Html.ActionLink("Đồng Hồ Nữ", "DongHoNu", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
+                        <a class="nav-link" @Html.ActionLink("Đồng Hồ Nữ", "DongHoNu", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
@@ -44,5 +44,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    @RenderSection("upload", required: false)
 </body>
 </html>
