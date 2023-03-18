@@ -170,9 +170,6 @@ namespace WatchStore.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        #region dang ky nhan vien
-        
-        #endregion
 
         //
         // GET: /Account/ConfirmEmail

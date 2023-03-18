@@ -95,14 +95,12 @@
                                             <p>Please login to your account</p>
 
                                             <div class="form-outline mb-4">
-                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                                                <label class="form-label" for="form2Example11">Email</label>
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control placeholder-active" , @placeholder ="Email"})
 
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                                                <label class="form-label" for="form2Example22" name="PasswordHash">Password</label>
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-active", @placeholder="Password" })
                                             </div>
 
                                             <div class="text-center pt-1 mb-3 pb-1">
