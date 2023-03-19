@@ -13,7 +13,7 @@ namespace WatchStore.Controllers
     public class WatchController : Controller
     {
         // GET: Watch
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         int Nam = 1;//ID IDProductFor Nam
         int Nu = 2;//ID IDProductFor Nu
         public ActionResult Index()
@@ -121,15 +121,15 @@ namespace WatchStore.Controllers
             db.SubmitChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult Edit(string iDWatch)
+        public ActionResult Edit(string id)
         {
-            var E_dongho = db.Watches.FirstOrDefault(m => m.IDWatch == iDWatch);
+            var E_dongho = db.Watches.First(m => m.IDWatch == id);
             return View(E_dongho);
         }
         [HttpPost]
-        public ActionResult Edit(Watch w, string iDWatch, FormCollection collection)
+        public ActionResult Edit(Watch w, string id, FormCollection collection)
         {
-            var IDWatch = from b in db.AUTO_IDWatch() select b;
+            var IDWatch = db.Watches.First(m => m.IDWatch == id);
             var NameWatch = collection["NameWatch"];
             var IDSupplier = collection["IDSupplier"];
             var IDBrand = collection["IDBrand"];
@@ -145,10 +145,6 @@ namespace WatchStore.Controllers
             }
             else
             {
-                foreach (var item in IDWatch)
-                {
-                    w.IDWatch += item;
-                }
                 w.NameWatch = NameWatch;
                 w.IDSupplier = Int32.Parse(IDSupplier);
                 w.IDBrand = Int32.Parse(IDBrand);
@@ -163,7 +159,7 @@ namespace WatchStore.Controllers
                 db.SubmitChanges();
                 return RedirectToAction("Index");
             }
-            return this.Edit(iDWatch);
+            return this.Edit(id);
         }
     }
 }

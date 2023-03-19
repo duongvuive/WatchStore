@@ -43,8 +43,6 @@
         </div>
     }
 </div>
-<div>
-    @Html.ActionLink("Về Trang Chủ", "Index", "Watch", new { @class = "btn btn-justdark" })
-</div>
 <br />
 @Html.PagedListPager(Model, page => Url.Action("DongHoNam", "Watch", new { page, pagesize = 6 }))
+
