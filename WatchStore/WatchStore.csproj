@@ -228,13 +228,13 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <Content Include="Models\dbDongHo.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>dbDongHo.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
     </Content>
     <None Include="Models\dbDongHo.dbml.layout">
       <DependentUpon>dbDongHo.dbml</DependentUpon>

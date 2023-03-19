@@ -13,7 +13,7 @@ namespace WatchStore.Controllers
     public class WatchController : Controller
     {
         // GET: Watch
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         int Nam = 1;//ID IDProductFor Nam
         int Nu = 2;//ID IDProductFor Nu
         public ActionResult Index()
@@ -52,13 +52,23 @@ namespace WatchStore.Controllers
 
         public ActionResult TaoDongHo()
         {
+            List<Supplier> listS =db.Suppliers.ToList();
+            ViewBag.Supplier1 = new SelectList(listS, "IDSupplier", "NameSupplier");
+            List<Brand> listB =db.Brands.ToList();
+            ViewBag.Brand = new SelectList(listB, "IDBrand", "NameBrand");
+            List<Origin> listO = db.Origins.ToList();
+            ViewBag.Origin = new SelectList(listO, "IDOrigin", "NameOrigin");
+            List<ProductFor> listP = db.ProductFors.ToList();
+            ViewBag.ProductFor = new SelectList(listP, "IDProductFor", "NameProductFor");
             return View();
         }
         [HttpPost]
-        public ActionResult TaoDongHo(FormCollection collection, Watch w, string iDWatch)
+        public ActionResult TaoDongHo(FormCollection collection, Watch w)
         {
             var IDWatch = from b in db.AUTO_IDWatch() select b;
             var NameWatch = collection["NameWatch"];
+
+
             var IDSupplier = collection["IDSupplier"];
             var IDBrand = collection["IDBrand"];
             var IDOrigin = collection["IDOrigin"];
@@ -121,15 +131,15 @@ namespace WatchStore.Controllers
             db.SubmitChanges();
             return RedirectToAction("Index");
         }
-        public ActionResult Edit(string iDWatch)
+        public ActionResult Edit(string id)
         {
-            var E_dongho = db.Watches.FirstOrDefault(m => m.IDWatch == iDWatch);
+            var E_dongho = db.Watches.First(m => m.IDWatch == id);
             return View(E_dongho);
         }
         [HttpPost]
-        public ActionResult Edit(Watch w, string iDWatch, FormCollection collection)
+        public ActionResult Edit(Watch w, string id, FormCollection collection)
         {
-            var IDWatch = from b in db.AUTO_IDWatch() select b;
+            var IDWatch = db.Watches.First(m => m.IDWatch == id);
             var NameWatch = collection["NameWatch"];
             var IDSupplier = collection["IDSupplier"];
             var IDBrand = collection["IDBrand"];
@@ -145,10 +155,6 @@ namespace WatchStore.Controllers
             }
             else
             {
-                foreach (var item in IDWatch)
-                {
-                    w.IDWatch += item;
-                }
                 w.NameWatch = NameWatch;
                 w.IDSupplier = Int32.Parse(IDSupplier);
                 w.IDBrand = Int32.Parse(IDBrand);
@@ -163,7 +169,7 @@ namespace WatchStore.Controllers
                 db.SubmitChanges();
                 return RedirectToAction("Index");
             }
-            return this.Edit(iDWatch);
+            return this.Edit(id);
         }
     }
 }
