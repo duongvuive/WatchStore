@@ -391,7 +391,7 @@ namespace WatchStore.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Watch");
         }
 
         //
@@ -448,7 +448,7 @@ namespace WatchStore.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Watch");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
