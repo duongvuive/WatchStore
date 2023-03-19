@@ -46,5 +46,10 @@
 <div>
     @Html.ActionLink("Về Trang Chủ", "Index", "Watch", new { @class = "btn btn-justdark" })
 </div>
-<br />
-@Html.PagedListPager(Model, page => Url.Action("DongHoNu", "Watch", new { page, pagesize = 6 }))
+<div>
+    Page @(Model.PageCount < Model.PageNumber ?
+     0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("DongHoNu",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
