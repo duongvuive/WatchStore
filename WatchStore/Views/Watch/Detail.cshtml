@@ -4,7 +4,7 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link rel="stylesheet" href="~/Content/Css/dtail.css" />
 <h2>Detail</h2>
 
 <div>
@@ -48,7 +48,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Image)
+            <img src="@Html.DisplayFor(model => model.Image)" alt="thumbnail">
         </dd>
 
         <dt>

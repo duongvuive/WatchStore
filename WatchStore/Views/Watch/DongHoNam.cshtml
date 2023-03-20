@@ -18,8 +18,9 @@
             <div class="card-group">
                 <div class="card">
                     <a href="" class="text-decoration-none text-reset">
-                        <div class="zoomin ">
-                            <img class="card-img-top" src="@item.Image">
+                        <div class="zoomin ">                          
+                            
+                               <img class="card-img-top" src="@item.Image">  
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title text-truncate">@item.NameWatch</h5>@*text-truncate giới hạn chữ hiện *@
@@ -31,11 +32,13 @@
                     </a>
                     <div class="card-footer clearfix">
                         <div class="text-center">
-                            @Html.ActionLink("Đặt Mua", "Buy", new { id = item.IDWatch }, new { @class = "btn btn-success" })
+                            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",new { @id = item.IDWatch, @strURL = Request.Url.ToString() })">Đặt mua</a>
                             @Html.ActionLink("Chi Tiết", "Detail", new { id = item.IDWatch }, new { @class = "btn btn-success" })
                             @Html.ActionLink("Xoá", "Delete", new { id = item.IDWatch })|@Html.ActionLink("Sửa", "Edit", new { id = item.IDWatch })
 
                         </div>
+                        
+
                     </div>
                 </div>
 
@@ -43,11 +46,9 @@
         </div>
     }
 </div>
-<div >
-    Page @(Model.PageCount < Model.PageNumber ?
-     0 : Model.PageNumber) of @Model.PageCount
-
-    @Html.PagedListPager(Model, page => Url.Action("DongHoNam",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div style="display:inline-block">
+    @Html.ActionLink("Về Trang Chủ", "Index", "Watch", new { @class = "btn btn-success" })
+    @Html.PagedListPager(Model, page => Url.Action("DongHoNam", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
 

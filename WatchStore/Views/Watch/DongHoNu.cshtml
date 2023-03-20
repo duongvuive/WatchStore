@@ -44,12 +44,11 @@
     }
 </div>
 <div>
+    
+</div>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div style="display:inline-block">
     @Html.ActionLink("Về Trang Chủ", "Index", "Watch", new { @class = "btn btn-justdark" })
+    @Html.PagedListPager(Model, page => Url.Action("DongHoNu", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
-<div>
-    Page @(Model.PageCount < Model.PageNumber ?
-     0 : Model.PageNumber) of @Model.PageCount
-
-    @Html.PagedListPager(Model, page => Url.Action("DongHoNu",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
-</div>
+    

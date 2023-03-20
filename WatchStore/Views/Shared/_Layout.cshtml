@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    <nav>
     <section>
         <div class="navbar navbar-expand-xl navbar-light bg-light">
             <div class="logo">
@@ -17,13 +18,16 @@
                 <a class="navbar-brand " href="https://localhost:44358/Watch/Index"><img class="icon-custom" src="~/Content/images/logo.png" /></a>
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a class="nav-link" href="https://localhost:44310/Watch/Index">Giới Thiệu</a>
+                        <a class="nav-link" href="https://localhost:44358/Watch/Index">Giới Thiệu</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" @Html.ActionLink("Đồng Hồ Nam", "DongHoNam", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" @Html.ActionLink("Đồng Hồ Nữ", "DongHoNu", "Watch", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" @Html.Partial("~/Views/GioHang/GioHangPartial.cshtml", new { area = "" })</a>
                     </li>
                 </ul>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
@@ -44,7 +48,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
     @RenderSection("upload", required: false)
 </body>
 </html>
