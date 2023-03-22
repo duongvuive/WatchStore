@@ -21,7 +21,7 @@ namespace WatchStore.Controllers
             }
             return lstGioHang;
         }
-        public ActionResult ThemGioHang(int id, string strURL)
+        public ActionResult ThemGioHang(string id, string strURL)
         {
             List<GioHang> lstGioHang = LayGioHang();
             GioHang watch = lstGioHang.Find(n => n.IDWatch == id);
@@ -82,7 +82,7 @@ namespace WatchStore.Controllers
             ViewBag.Tongsoluongsanpham = TongSoLuongSanPham();
             return PartialView();
         }
-        public ActionResult XoaGioHang(int id)
+        public ActionResult XoaGioHang(string id)
         {
             List<GioHang> lstGioHang = LayGioHang();
             GioHang sanpham = lstGioHang.SingleOrDefault(n => n.IDWatch == id);
@@ -93,7 +93,7 @@ namespace WatchStore.Controllers
             }
             return RedirectToAction("GioHang");
         }
-        public ActionResult CapNhatGioHang(int id, FormCollection collection)
+        public ActionResult CapNhatGioHang(string id, FormCollection collection)
         {
             List<GioHang> lstGioHang = LayGioHang();
             GioHang sanpham = lstGioHang.SingleOrDefault(n => n.IDWatch == id);

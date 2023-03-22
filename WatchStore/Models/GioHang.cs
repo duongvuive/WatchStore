@@ -11,9 +11,8 @@ namespace WatchStore.Models
     public class GioHang
     {
         dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
-        private int id;
 
-        public int IDWatch { get; set; }
+        public string IDWatch { get; set; }
         [Display(Name = "Mã Đồng hồ")]
         public string NameWatch { get; set; }
         [Display(Name = "Tên Đông Hồ")]
@@ -30,18 +29,15 @@ namespace WatchStore.Models
         }
         
         
-        public GioHang(string IDWatch )
+        public GioHang(string id )
         {
             
-            Watch watch = db.Watches.Single(n => n.IDWatch == IDWatch);
+            Watch watch = db.Watches.Single(n => n.IDWatch == id);
             NameWatch = watch.NameWatch;
             Image = watch.Image;
             Price = double.Parse(watch.Price.ToString());
         }
 
-        public GioHang(int id)
-        {
-            this.id = id;
-        }
+       
     }
 }
