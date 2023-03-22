@@ -35,8 +35,8 @@
     {
         <tr>
             @*<td>
-                    @Html.DisplayFor(modelItem => item.masach)
-                </td>*@
+            @Html.DisplayFor(modelItem => item.masach)
+        </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.NameWatch)
             </td>
@@ -46,31 +46,34 @@
             </td>
             @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.iSoLuong }))
             {
+
+
+                <td><a href="@Url.Action("Detail", "Sach", new {id=item.IDWatch})"> Chi tiết</a> | @Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.IDWatch })</td>
                 <td>@String.Format("{0:0,0}", item.Price) VNĐ</td>
                 <td><input type="number" min="1" name="txtSolg" value="@item.iSoLuong" /></td>
                 <td>@Html.DisplayFor(modelItem => item.ThanhTien)</td>
-                <td><a href="@Url.Action("Detail", "Sach", new {id=item.IDWatch})"> Chi tiết</a> | @Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.IDWatch })</td>
                 <td><input type="submit" value="Cập nhật" class="btn btn-success" /></td>
+
             }
             @*<td>
-                    @Html.DisplayFor(modelItem => item.giaban)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.iSoluong)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.dThanhtien)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>*@
+            @Html.DisplayFor(modelItem => item.giaban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iSoluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dThanhtien)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
         </tr>
     }
     <tr style="font-weight:bold; text-align:left;color:red">
-        <td colspan="2"> Số loại sách: @ViewBag.Tongsoluongsanpham</td>
-        <td colspan="2"> Số lượng sách: @ViewBag.Tongsoluong</td>
+        <td colspan="2"> Số loại đồng hồ: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="2"> Số lượng đồng hồ: @ViewBag.Tongsoluong</td>
         <td colspan="4"> Tổng tiền: @String.Format("{0:0,0}", @ViewBag.Tongtien) VNĐ</td>
     </tr>
     <tr style="font-weight:bold; color:blue; text-align:right">
