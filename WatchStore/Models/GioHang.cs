@@ -10,7 +10,7 @@ namespace WatchStore.Models
     [Serializable]
     public class GioHang
     {
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         [Display(Name = "Mã Đồng hồ")]
         public string IDWatch { get; set; }
         [Display(Name = "Tên Đông Hồ")]
