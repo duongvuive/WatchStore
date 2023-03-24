@@ -1,4 +1,4 @@
-﻿@model WatchStore.Models.Watch
+﻿@model WatchStore.Models.ViewWatch
 
 @{
     ViewBag.Title = "Detail";
@@ -14,81 +14,78 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.NameWatch)
+                @Html.DisplayNameFor(model => model.Watch.NameWatch)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.NameWatch)
+                @Html.DisplayFor(model => model.Watch.NameWatch)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.IDSupplier)
+                @Html.DisplayNameFor(model => model.Watch.IDSupplier)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.IDSupplier)
+                @Html.DisplayFor(model => model.SupplierName)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.IDBrand)
+                @Html.DisplayNameFor(model => model.Watch.Brand)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.IDBrand)
+                @Html.DisplayFor(model => model.Brand)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.IDOrigin)
+                @Html.DisplayNameFor(model => model.Watch.Origin)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.IDOrigin)
+                @Html.DisplayFor(model => model.Origin)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Image)
+                @Html.DisplayNameFor(model => model.Watch.Image)
             </dt>
 
             <dd>
-                <img src="@Html.DisplayFor(model => model.Image)" alt="thumbnail">
+                <img src="@Html.DisplayFor(model => model.Watch.Image)" alt="thumbnail">
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Watch.Price)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Price)
+                @Html.DisplayFor(model => model.Watch.Price)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Status)
+                @Html.DisplayNameFor(model => model.Watch.Status)
+            </dt>
+
+            @*            <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Watch.IDProductFor)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Status)
+                @Html.DisplayFor(model => model.ProductFor)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.IDProductFor)
+                @Html.DisplayNameFor(model => model.Watch.Content)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.IDProductFor)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Content)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Content)
+                @Html.DisplayFor(model => model.Watch.Content)
             </dd>
 
         </dl>
     </div>
 </body>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IDWatch }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

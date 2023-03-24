@@ -115,7 +115,23 @@ namespace WatchStore.Controllers
         public ActionResult Detail(string id)
         {
             var D_dongho = db.Watches.FirstOrDefault(m => m.IDWatch == id);
-            return View(D_dongho);
+            var Supplier = db.Suppliers.FirstOrDefault(m => m.IDSupplier == D_dongho.IDSupplier);
+            var brand = db.Brands.FirstOrDefault(m => m.IDBrand == D_dongho.IDBrand);
+            var origin = db.Origins.FirstOrDefault(m => m.IDOrigin == D_dongho.IDOrigin);
+            var productFor = db.ProductFors.FirstOrDefault(m => m.IDProductFor == D_dongho.IDProductFor);
+            if (D_dongho == null)
+            {
+                return HttpNotFound();
+            }
+            var View_watch = new ViewWatch
+            {
+                Watch = D_dongho,
+                SupplierName = Supplier?.NameSupplier,
+                Brand=brand?.NameBrand,
+                Origin=origin?.NameOrigin,
+                ProductFor = productFor?.NameProductFor,
+            };
+            return View(View_watch);
         }
 
         public ActionResult Delete(string id)
