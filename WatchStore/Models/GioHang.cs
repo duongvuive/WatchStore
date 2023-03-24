@@ -11,18 +11,18 @@ namespace WatchStore.Models
     public class GioHang
     {
         dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
-
-        public string IDWatch { get; set; }
         [Display(Name = "Mã Đồng hồ")]
-        public string NameWatch { get; set; }
+        public string IDWatch { get; set; }
         [Display(Name = "Tên Đông Hồ")]
-        public string Image { get; set; }
+        public string NameWatch { get; set; }
         [Display(Name = "Hình")]
+        public string Image { get; set; }
         
-        public int iSoLuong { get; set; }
         [Display(Name = "So Luong")]
-        public Double Price { get; set; }
+        public int iSoLuong { get; set; }
         [Display(Name = "Đơn Giá")]
+        public Double Price { get; set; }
+        
         public Double ThanhTien
         {
             get { return Price; }
