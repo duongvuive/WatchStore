@@ -297,6 +297,8 @@
     <Content Include="Views\Watch\Delete.cshtml" />
     <Content Include="Views\Watch\Edit.cshtml" />
     <Content Include="Views\Loi\Index.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

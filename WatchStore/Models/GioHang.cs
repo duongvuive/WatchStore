@@ -36,6 +36,7 @@ namespace WatchStore.Models
             NameWatch = watch.NameWatch;
             Image = watch.Image;
             Price = double.Parse(watch.Price.ToString());
+            iSoLuong = 1;
         }
 
        

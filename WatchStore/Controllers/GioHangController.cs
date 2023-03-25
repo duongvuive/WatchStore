@@ -10,7 +10,7 @@ namespace WatchStore.Controllers
     public class GioHangController : Controller
     {
         // GET: GioHang
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         public List<GioHang> LayGioHang()
         {
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
@@ -43,7 +43,7 @@ namespace WatchStore.Controllers
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang != null)
             {
-                tsl = lstGioHang.Sum(n => n.iSoLuong++);
+                tsl = lstGioHang.Sum(n => n.iSoLuong);
             }
             return tsl;
         }
