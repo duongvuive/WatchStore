@@ -179,6 +179,7 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LoiController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WatchController.cs" />
     <Compile Include="Global.asax.cs">
@@ -295,6 +296,7 @@
     <Content Include="Views\Watch\TaoDongHo.cshtml" />
     <Content Include="Views\Watch\Delete.cshtml" />
     <Content Include="Views\Watch\Edit.cshtml" />
+    <Content Include="Views\Loi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

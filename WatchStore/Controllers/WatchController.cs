@@ -7,20 +7,41 @@ using WatchStore.Models;
 using PagedList;
 using System.Drawing.Printing;
 using System.Web.UI;
+using System.Web.Routing;
 
 namespace WatchStore.Controllers
 {
+
+    public class CustomAuthorlizeAttribute : AuthorizeAttribute
+    {
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+        {
+            if (!filterContext.HttpContext.User.Identity.IsAuthenticated)//Nếu người dùng chưa đăng nhập chuyển trang sang Login
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary
+                    (new { controller = "Account", action = "Login", returnUrl = filterContext.HttpContext.Request.Url }));
+
+            }
+            //Nếu người dùng đăng nhập không có quyền truy cập 
+            else
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Loi", action = "Index" }));
+            }
+        }
+    }
     public class WatchController : Controller
     {
         // GET: Watch
         dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         int Nam = 1;//ID IDProductFor Nam
         int Nu = 2;//ID IDProductFor Nu
+
         public ActionResult Index()
         {
             return View();
         }
 
+        [CustomAuthorlizeAttribute(Roles ="Admin ,Khách Hàng")]
         public ActionResult DongHoNam(int? page, int? pageSize)
         {
             if (page == null)
@@ -34,7 +55,7 @@ namespace WatchStore.Controllers
             var N = from s in db.Watches.ToList() where s.IDProductFor == Nam select s;
             return View(N.ToPagedList((int)page, (int)pageSize));
         }
-
+        [CustomAuthorlizeAttribute(Roles = "Admin ,Khách Hàng")]
         public ActionResult DongHoNu(int? page, int? pageSize)
         {
             if (page == null)
