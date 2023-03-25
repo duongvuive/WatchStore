@@ -9,6 +9,20 @@
 <link href="~/Content/Css/text.css" rel="stylesheet" />
 <h2>Đồng Hồ Nam</h2>
 <div class="row">
+    @using (Html.BeginForm())
+    {
+        <p>
+            <label>Sắp xếp theo:</label>
+            @Html.DropDownList("OrderBy", new SelectList(new Dictionary<string, string>
+            {
+                { "Name_asc", "Tên sản phẩm: A-Z" },
+                { "Name_desc", "Tên sản phẩm: Z-A" },
+                { "Price_asc", "Giá: Thấp đến cao" },
+                { "Price_desc", "Giá: Cao đến thấp" }
+            }, "Key", "Value"), new { onchange = "this.form.submit();" })
+        </p>
+    }
+
     @foreach (var item in Model)
     {
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
@@ -43,7 +57,6 @@
 </div>
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 <div style="display:inline-block">
-    @Html.ActionLink("Về Trang Chủ", "Index", "Watch", new { @class = "btn btn-success" })
     @Html.PagedListPager(Model, page => Url.Action("DongHoNam", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
 </div>
 

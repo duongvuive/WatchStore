@@ -42,7 +42,7 @@ namespace WatchStore.Controllers
         }
 
         [CustomAuthorlizeAttribute(Roles ="Admin ,Khách Hàng")]
-        public ActionResult DongHoNam(int? page, int? pageSize)
+        public ActionResult DongHoNam(int? page, int? pageSize,string OrderBy)
         {
             if (page == null)
             {
@@ -53,10 +53,24 @@ namespace WatchStore.Controllers
                 pageSize = 6;
             }
             var N = from s in db.Watches.ToList() where s.IDProductFor == Nam select s;
+            switch (OrderBy)
+            {
+                case "Price_asc":
+                    N=N.OrderBy(s=>s.Price); break;//tăng dần
+                case "Price_desc":
+                    N=N.OrderByDescending(s=>s.Price); break;//giảm dần
+                case "Name_asc":
+                    N = N.OrderBy(s => s.NameWatch);break;
+                case "Name_desc":
+                    N = N.OrderByDescending(s => s.NameWatch); break;
+                default:
+                    N = N.OrderBy(s => s.IDWatch);
+                    break;
+            }
             return View(N.ToPagedList((int)page, (int)pageSize));
         }
         [CustomAuthorlizeAttribute(Roles = "Admin ,Khách Hàng")]
-        public ActionResult DongHoNu(int? page, int? pageSize)
+        public ActionResult DongHoNu(int? page, int? pageSize,string OrderBy)
         {
             if (page == null)
             {
@@ -67,6 +81,19 @@ namespace WatchStore.Controllers
                 pageSize = 6;
             }
             var N = from s in db.Watches.ToList() where s.IDProductFor == Nu select s;
+            switch(OrderBy)
+            {
+                case "Price_asc":
+                    N=N.OrderBy(s=>s.Price);break;
+                case "Price-desc":
+                    N=N.OrderByDescending(s=>s.Price); break;
+                case "Name_asc":
+                    N = N.OrderBy(s => s.Price); break;
+                case "Name-desc":
+                    N = N.OrderByDescending(s => s.Price); break;
+                default:
+                    N=N.OrderBy(s=>s.IDWatch); break;
+            }
             ViewBag.Suppliers = db.Suppliers;
             return View(N.ToPagedList((int)page, (int)pageSize));
         }

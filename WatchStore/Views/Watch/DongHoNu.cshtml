@@ -12,6 +12,19 @@
 <h2>Đồng Hồ Nữ</h2>
 
 <div class="row">
+    @using (Html.BeginForm())
+    {
+        <p>
+            <label>Sắp xếp theo:</label>
+            @Html.DropDownList("OrderBy", new SelectList(new Dictionary<string, string>
+            {
+                { "Name_asc", "Tên sản phẩm: A-Z" },
+                { "Name_desc", "Tên sản phẩm: Z-A" },
+                { "Price_asc", "Giá: Thấp đến cao" },
+                { "Price_desc", "Giá: Cao đến thấp" }
+            }, "Key", "Value"), new { onchange = "this.form.submit();" })
+        </p>
+    }
     @foreach (var item in Model)
     {
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
