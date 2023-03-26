@@ -36,10 +36,18 @@
                     <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                         @Html.Partial("_LoginPartial")
                     </div>
+
                 </div>
             </div>
         </section>
     </nav>
+    @using (Html.BeginForm("Search", "Find", FormMethod.Get))
+    {
+        <div class="form-group">
+            @Html.TextBox("ProductName", null, new { @class = "form-control", placeholder = "Nhập từ khóa tìm kiếm" })
+        </div>
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
