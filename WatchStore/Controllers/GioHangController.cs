@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using WatchStore.Models;
 
 namespace WatchStore.Controllers
 {
+    
     public class GioHangController : Controller
     {
         // GET: GioHang
         dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
+        [CustomAuthorlizeAttribute(Roles = "Khách Hàng")]
         public List<GioHang> LayGioHang()
         {
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
@@ -21,6 +24,7 @@ namespace WatchStore.Controllers
             }
             return lstGioHang;
         }
+        [CustomAuthorlizeAttribute(Roles = "Khách Hàng")]
         public ActionResult ThemGioHang(string id, string strURL)
         {
             List<GioHang> lstGioHang = LayGioHang();
@@ -67,6 +71,7 @@ namespace WatchStore.Controllers
             }
             return tt;
         }
+        [CustomAuthorlizeAttribute(Roles = "Khách Hàng")]
         public ActionResult GioHang()
         {
             List<GioHang> lstGioHang = LayGioHang();

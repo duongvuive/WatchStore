@@ -41,7 +41,7 @@ namespace WatchStore.Controllers
             return View();
         }
 
-        [CustomAuthorlizeAttribute(Roles ="Admin ,Khách Hàng")]
+        [AllowAnonymous]
         public ActionResult DongHoNam(int? page, int? pageSize,string OrderBy)
         {
             if (page == null)
@@ -69,7 +69,7 @@ namespace WatchStore.Controllers
             }
             return View(N.ToPagedList((int)page, (int)pageSize));
         }
-        [CustomAuthorlizeAttribute(Roles = "Admin ,Khách Hàng")]
+        [AllowAnonymous]
         public ActionResult DongHoNu(int? page, int? pageSize,string OrderBy)
         {
             if (page == null)
@@ -160,6 +160,7 @@ namespace WatchStore.Controllers
             file.SaveAs(Server.MapPath("~/Content/images/" + file.FileName));
             return "/Content/images/" + file.FileName;
         }
+        [AllowAnonymous]
         public ActionResult Detail(string id)
         {
             var D_dongho = db.Watches.FirstOrDefault(m => m.IDWatch == id);
