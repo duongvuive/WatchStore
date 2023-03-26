@@ -76,10 +76,18 @@ namespace WatchStore.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            dbDongHoDataContext data = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
+            var Id=data.AspNetUsers.Where(m=>m.Email == model.Email).FirstOrDefault();
+            string IdLogin=Id?.Id.ToString();//lấy id tai khoan login
+            var Role = data.AspNetUserRoles.First(m => m.UserId == IdLogin);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    if(Role.RoleId == "KH1")
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                    return View("~/Areas/Admin/Views/Home/Index.cshtml");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -441,7 +449,7 @@ namespace WatchStore.Controllers
                 ModelState.AddModelError("", error);
             }
         }
-
+        #region chuyển trang khi đăng nhập
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -450,7 +458,7 @@ namespace WatchStore.Controllers
             }
             return RedirectToAction("Index", "Watch");
         }
-
+        #endregion
         internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)

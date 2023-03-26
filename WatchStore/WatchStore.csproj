@@ -2135,12 +2135,6 @@
       <LastGenOutput>dbDongHo.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_PartialSideBar.cshtml" />
-    <Content Include="Areas\Admin\Views\Watch\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Content\clients\dist\css\adminlte.css.map" />
     <Content Include="Content\clients\dist\css\adminlte.min.css.map" />
     <Content Include="Content\clients\dist\css\alt\adminlte.components.css.map" />
@@ -2221,6 +2215,12 @@
     <Content Include="Content\clients\plugins\summernote\summernote.js.map" />
     <Content Include="Content\clients\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\clients\plugins\toastr\toastr.js.map" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_PartialSideBar.cshtml" />
+    <Content Include="Areas\Admin\Views\Watch\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Models\dbDongHo.dbml.layout">
       <DependentUpon>dbDongHo.dbml</DependentUpon>
     </None>
