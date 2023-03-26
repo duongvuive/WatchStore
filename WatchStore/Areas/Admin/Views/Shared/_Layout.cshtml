@@ -176,12 +176,12 @@
                 <span class="brand-text font-weight-light">Watch Store</span>
             </a>
 
-           @Html.Partial("_PartialSideBar")
+            @Html.Partial("_PartialSideBar")
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-           @RenderBody()
+            @RenderBody()
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
@@ -358,7 +358,8 @@
         document.querySelector("#actions .cancel").onclick = function () {
             myDropzone.removeAllFiles(true)
         }
-      // DropzoneJS Demo Code End
+          // DropzoneJS Demo Code End
     </script>
 </body>
 </html>
+@RenderSection("upload", required: false)

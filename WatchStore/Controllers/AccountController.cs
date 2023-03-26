@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -83,11 +84,11 @@ namespace WatchStore.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    if(Role.RoleId == "KH1")
+                    if (Role.RoleId == "KH1")
                     {
                         return RedirectToLocal(returnUrl);
                     }
-                    return View("~/Areas/Admin/Views/Home/Index.cshtml");
+                    return RedirectToAdmin(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -457,6 +458,14 @@ namespace WatchStore.Controllers
                 return Redirect(returnUrl);
             }
             return RedirectToAction("Index", "Watch");
+        }
+        private ActionResult RedirectToAdmin(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return View("~/Areas/Admin/Views/Home/Index.cshtml");
         }
         #endregion
         internal class ChallengeResult : HttpUnauthorizedResult
