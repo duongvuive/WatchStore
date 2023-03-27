@@ -84,7 +84,7 @@
             <dd>
                 @Html.DisplayFor(model => model.Watch.Content)
             </dd>
-
+            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",new { @id = Model.Watch.IDWatch, @strURL = Request.Url.ToString() })">Đặt mua</a>
         </dl>
     </div>
 </body>
