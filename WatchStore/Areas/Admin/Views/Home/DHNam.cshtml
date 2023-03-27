@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WatchStore.Models.Watch>
+
+@{
+    ViewBag.Title = "DHNam";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đồng Hò Nam</h2>
+
+<p>
+    @Html.ActionLink("Create New", "TaoDongHo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameWatch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDSupplier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDOrigin)
+        </th>
+       @* <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDProductFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameWatch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDSupplier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDOrigin)
+        </td>
+       @* <td>
+            @Html.DisplayFor(modelItem => item.Image)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDProductFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDWatch }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDWatch })
+        </td>
+    </tr>
+}
+
+</table>
