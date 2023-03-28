@@ -41,7 +41,7 @@
             
             @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.iSoLuong }))
             {
-                <td><a href="@Url.Action("Detail", "Sach", new {id=item.IDWatch})"> Chi tiết</a> | @Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.IDWatch })</td>
+                <td><a href="@Url.Action("Detail", "Watch", new {id=item.IDWatch})"> Chi tiết</a> | @Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.IDWatch })</td>
                 <td>@String.Format("{0:0,0}", item.Price) VNĐ</td>
                 <td><input type="number" min="1" name="txtSolg" value="@item.iSoLuong" /></td>
                 <td>@Html.DisplayFor(modelItem => item.ThanhTien)</td>

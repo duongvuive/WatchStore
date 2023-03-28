@@ -12,7 +12,7 @@ namespace WatchStore.Controllers
     public class GioHangController : Controller
     {
         // GET: GioHang
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=DongHo;Integrated Security=True");
         [CustomAuthorlizeAttribute(Roles = "Khách Hàng")]
         public List<GioHang> LayGioHang()
         {
@@ -119,5 +119,54 @@ namespace WatchStore.Controllers
             return View();
         }
         /*Giohang k loi */
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            if (Session["Email"] == null || Session["Email"].ToString() == " ")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Watch");
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            ViewBag.Tongsoluong = TongSoLuong();
+            ViewBag.TongTien = TongTien();
+            ViewBag.Tongsoluongsanpham = TongSoLuongSanPham();
+            return View(lstGioHang);
+        }
+        public ActionResult DatHang(FormCollection collection)
+        {
+            Bill dh = new Bill();
+            Customer kh = (Customer)Session["Email"];
+            Watch s = new Watch();
+            List<GioHang> gh = LayGioHang();
+            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);
+            dh.IDCustomer = kh.IDCustomer;
+            dh.Time = DateTime.Now;
+            dh.Status = false;
+            db.Bills.InsertOnSubmit(dh);
+            db.SubmitChanges();
+            foreach (var item in gh)
+            {
+                BillDetail ctdh = new BillDetail();
+                ctdh.IDBill = dh.IDBill;
+                ctdh.IDWatch = item.IDWatch;
+                ctdh.NumberOfOrders = item.iSoLuong;
+                /* ctdh.Gia = (decimal)item.Price;*/
+                s = db.Watches.Single(n => n.IDWatch == item.IDWatch);
+
+                db.SubmitChanges();
+                db.BillDetails.InsertOnSubmit(ctdh);
+            }
+            db.SubmitChanges();
+            Session["GioHang"] = null;
+            return RedirectToAction("XacnhanDonHang", "GioHang");
+        }
+        public ActionResult XacnhanDonhang()
+        {
+            return View();
+        }
     }
 }
