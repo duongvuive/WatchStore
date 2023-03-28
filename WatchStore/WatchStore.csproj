@@ -2224,9 +2224,9 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\TaoDongHo.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\DHNam.cshtml" />
     <Content Include="Areas\Admin\Views\Home\DHNu.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\DHNam.cshtml" />
     <None Include="Models\dbDongHo.dbml.layout">
       <DependentUpon>dbDongHo.dbml</DependentUpon>
     </None>

@@ -14,7 +14,7 @@ namespace WatchStore.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         // GET: Admin/Home
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=hi;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         int Nam = 1;//ID IDProductFor Nam
         int Nu = 2;//ID IDProductFor Nu
         public ActionResult Index()
@@ -137,6 +137,14 @@ namespace WatchStore.Areas.Admin.Controllers
         }
         public ActionResult Edit(string id)
         {
+            List<Supplier> listS = db.Suppliers.ToList();
+            ViewBag.Supplier1 = new SelectList(listS, "IDSupplier", "NameSupplier");
+            List<Brand> listB = db.Brands.ToList();
+            ViewBag.Brand = new SelectList(listB, "IDBrand", "NameBrand");
+            List<Origin> listO = db.Origins.ToList();
+            ViewBag.Origin = new SelectList(listO, "IDOrigin", "NameOrigin");
+            List<ProductFor> listP = db.ProductFors.ToList();
+            ViewBag.ProductFor = new SelectList(listP, "IDProductFor", "NameProductFor");
             var E_dongho = db.Watches.First(m => m.IDWatch == id);
             return View(E_dongho);
         }
