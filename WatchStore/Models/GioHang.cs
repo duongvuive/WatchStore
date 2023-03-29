@@ -10,7 +10,7 @@ namespace WatchStore.Models
     [Serializable]
     public class GioHang
     {
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=DongHo;Integrated Security=True");
         [Display(Name = "Mã Đồng hồ")]
         public string IDWatch { get; set; }
         [Display(Name = "Tên Đông Hồ")]
@@ -18,11 +18,11 @@ namespace WatchStore.Models
         [Display(Name = "Hình")]
         public string Image { get; set; }
         
-        [Display(Name = "So Luong")]
+        [Display(Name = "Số Lượng")]
         public int iSoLuong { get; set; }
         [Display(Name = "Đơn Giá")]
         public Double Price { get; set; }
-        
+        [Display(Name = "Thành Tiền")]
         public Double ThanhTien
         {
             get { return Price; }
