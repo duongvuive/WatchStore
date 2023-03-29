@@ -12,7 +12,7 @@ namespace WatchStore.Controllers
     public class GioHangController : Controller
     {
         // GET: GioHang
-        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=FREEDY\\SQLEXPRESS;Initial Catalog=DongHo;Integrated Security=True");
+        dbDongHoDataContext db = new dbDongHoDataContext("Data Source=DESKTOP-NEIOBVT;Initial Catalog=WatchStore;Integrated Security=True");
         [CustomAuthorlizeAttribute(Roles = "Khách Hàng")]
         public List<GioHang> LayGioHang()
         {
@@ -122,7 +122,7 @@ namespace WatchStore.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
-            if (Session["Email"] == null || Session["Email"].ToString() == " ")
+            if (Session["Login"] == null || Session["Login"].ToString() == " ")
             {
                 return RedirectToAction("Login", "Account");
             }
@@ -139,7 +139,7 @@ namespace WatchStore.Controllers
         public ActionResult DatHang(FormCollection collection)
         {
             Bill dh = new Bill();
-            Customer kh = (Customer)Session["Email"];
+            Customer kh = (Customer)Session["Login"];
             Watch s = new Watch();
             List<GioHang> gh = LayGioHang();
             var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["NgayGiao"]);

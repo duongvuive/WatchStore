@@ -86,6 +86,7 @@ namespace WatchStore.Controllers
                 case SignInStatus.Success:
                     if (Role.RoleId == "KH1")
                     {
+                        Session["Login"] = model.Email;
                         return RedirectToLocal(returnUrl);
                     }
                     return RedirectToAdmin(returnUrl);
